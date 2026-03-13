@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.S WebDeveloper | Portofoliu</title>
+    <meta name="description"
+        content="Portofoliul oficial al C.S WebDeveloper. Experți în site-uri statice și dashboard-uri (Admin/Client).">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome pt pictograme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background elemente animate -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">C.S</span> WebDeveloper
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Acasă</a>
+                <a href="#services" class="nav-link">Servicii</a>
+                <a href="#portfolio" class="nav-link">Portofoliu</a>
+                <a href="contact.html" class="nav-btn">Contact</a>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2 class="subtitle">BINE AI VENIT LA</h2>
+                <h1 class="title">SOLUȚII DIGITALE <br><span class="gradient-text">FĂRĂ COMPROMIS</span></h1>
+                <p class="description">Construim site-uri statice ultrarapide și dashboard-uri (Admin/Client) complexe,
+                    personalizate pe nevoile afacerii tale.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">Vezi Proiectele</a>
+                    <a href="#services" class="btn btn-secondary">Află mai multe</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glass-panel main-panel">
+                    <div class="panel-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="code-line w-80"></div>
+                        <div class="code-line w-60"></div>
+                        <div class="code-line w-90"></div>
+                        <div class="code-line w-40 highlight"></div>
+                        <div class="code-line w-70"></div>
+                        <div class="chart-container">
+                            <div class="bar h-60"></div>
+                            <div class="bar h-80"></div>
+                            <div class="bar h-40"></div>
+                            <div class="bar h-100 accent"></div>
+                            <div class="bar h-70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll pentru mai mult</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container pt-100">
+            <div class="section-header center">
+                <h2 class="section-title">Ce <span class="gradient-text">Oferim</span></h2>
+                <p class="section-subtitle">Expertiză tehnică transformată în rezultate de business clare.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>Site-uri de Prezentare</h3>
+                    <p>Dezvoltăm site-uri web statice rapide, moderne și scalabile. Design unic creat pentru a-ți
+                        evidenția brand-ul și pentru a oferi o experiență perfectă pe orice dispozitiv.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Încărcare Ultrarapidă</li>
+                        <li><i class="fas fa-check"></i> Design Responsive (Mobil/Tabletă)</li>
+                        <li><i class="fas fa-check"></i> Optimizare SEO</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label">Pornind de la</span>
+                        <div class="price-value">50€</div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Dashboard Admin & Client</h3>
+                    <p>Panouri de control complete. Gestionează platforma ca admin și oferă clienților tăi portaluri
+                        dedicate pentru profiluri, comenzi sau abonamente.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Gestionează Useri și Date</li>
+                        <li><i class="fas fa-check"></i> Rapoarte & Statistici Reale</li>
+                        <li><i class="fas fa-check"></i> Portal Utilizator Securizat</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label">Pornind de la</span>
+                        <div class="price-value">100€</div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3>Aplicații Mobile</h3>
+                    <p>Dezvoltăm aplicații mobile moderne (iOS & Android) personalizate. De la aplicații de taxi, la
+                        platforme de gestiune, optimizate pentru retenția utilizatorilor.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Interfață Ușor de Folosit (UI/UX)</li>
+                        <li><i class="fas fa-check"></i> Performanță Sporită</li>
+                        <li><i class="fas fa-check"></i> Notificări Push & Gps</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label">Pornind de la</span>
+                        <div class="price-value">100€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container pt-100">
+            <div class="section-header">
+                <h2 class="section-title">Proiecte <span class="gradient-text">Recente</span></h2>
+                <p class="section-subtitle">Exemple care demonstrează capabilitățile și calitatea livrată de echipa
+                    noastră.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <!-- We will use CSS gradients and glass to simulate a clean UI -->
+                        <div class="mock-browser">
+                            <div class="mock-header">
+                                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            </div>
+                            <div class="mock-body p1-bg">
+                                <div class="mock-content"
+                                    style="background-image: url('taxi_preview.png'); background-size: cover; background-position: top center;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="fas fa-eye"></i> Vezi Proiect</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="tag">Site Static / Prezentare</span>
+                        <h3>Website Taxi</h3>
+                        <p>O prezență online modernă și ultra-rapidă pentru o companie de taxi, oferind informații
+                            despre tarife, serviciile oferite și modalități de contact la un click distanță.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="mock-browser">
+                            <div class="mock-header">
+                                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            </div>
+                            <div class="mock-body p2-bg">
+                                <div class="mock-content"></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="fas fa-eye"></i> Vezi Proiect</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="tag">Aplicație Mobilă / UI Design</span>
+                        <h3>Mobile App Taxi</h3>
+                        <p>Interfață de aplicație mobilă intuitivă ce permite clienților să comande rapid o cursă,
+                            incluzând panouri de urmărire pe hartă și istoric al curselor.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="mock-browser">
+                            <div class="mock-header">
+                                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            </div>
+                            <div class="mock-body p3-bg">
+                                <div class="mock-content"
+                                    style="background-image: url('carp_preview.png'); background-size: cover; background-position: top left;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="fas fa-eye"></i> Vezi Proiect</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="tag">Dashboard Admin & Client</span>
+                        <h3>Dashboard CARP Aiud</h3>
+                        <p>Management avansat pentru o asociație financiară. Include gestiunea membrilor, simulatoare de
+                            împrumuturi și zone securizate dedicate adminilor și utilizatorilor finali.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (Carousel) -->
+    <section id="testimonials" class="testimonials">
+        <div class="container pt-100">
+            <div class="section-header center">
+                <h2 class="section-title">Ce spun <span class="gradient-text">Clienții</span></h2>
+                <p class="section-subtitle">Părerea celor care au colaborat cu C.S WebDeveloper pentru a-și digitaliza
+                    afacerea.</p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <p class="testimonial-text">"Site-ul pentru Taxi Sofica a ieșit perfect. Se încarcă imediat,
+                                ne-a adus rapid comenzi noi și arată foarte modern pe telefon. Mulțumim mult pentru
+                                profesionalism!"</p>
+                            <div class="testimonial-profile">
+                                <div class="avatar"><i class="fas fa-car-side"></i></div>
+                                <div class="info">
+                                    <h4>Administrator Taxi Sofica</h4>
+                                    <p>Dezvoltare Website</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <p class="testimonial-text">"Dashboard-ul pe care ni l-a creat a automatizat aproape toată
+                                munca de birou. Ne putem gestiona membrii cu mult mai mare ușurință. Extrem de sigură
+                                platforma!"</p>
+                            <div class="testimonial-profile">
+                                <div class="avatar"><i class="fas fa-building-columns"></i></div>
+                                <div class="info">
+                                    <h4>Manager CARP Aiud</h4>
+                                    <p>Dashboard Admin & Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <p class="testimonial-text">"O experiență excelentă de la cap la coadă. Mi-a fost livrată o
+                                aplicație fix pe nevoile mele specifice. Claritate, transparență și termene mereu
+                                respectate."</p>
+                            <div class="testimonial-profile">
+                                <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                                <div class="info">
+                                    <h4>Client Antreprenor</h4>
+                                    <p>Aplicație Mobilă</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-nav">
+                    <button id="prevBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-indicators" id="carouselIndicators">
+                        <!-- Dots generati de JS -->
+                    </div>
+                    <button id="nextBtn" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="cta-section">
+        <div class="container container-sm">
+            <div class="cta-box glass-card">
+                <h2>Ești pregătit să aduci ideea ta online?</h2>
+                <p>Hai să discutăm despre proiectul tău. Oferim consultanță gratuită pentru a stabili cea mai bună
+                    direcție pentru business-ul tău.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Începe un Proiect Acum</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer>
+        <div class="container footer-content pt-100">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-accent">C.S</span> WebDeveloper
+                    </a>
+                    <p>Inovație și performanță prin cod. Construim experiențe web memorabile ce rezolvă probleme reale.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/cosmin-sofic%C4%83-b7531a354/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Cosmin522154"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/__Cosmin_"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cosmin_sof/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigare</h3>
+                    <ul>
+                        <li><a href="#home">Acasă</a></li>
+                        <li><a href="#services">Servicii</a></li>
+                        <li><a href="#portfolio">Portofoliu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="termeni.html">Termeni și Condiții</a></li>
+                        <li><a href="confidentialitate.html">Politica de Confidențialitate</a></li>
+                        <li><a href="gdpr.html">GDPR</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> cosmin.sofica1@gmail.ro</li>
+                        <li><i class="fas fa-phone"></i> +40 771 302 541</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Aiud, România</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 C.S WebDeveloper. Toate drepturile rezervate. <a href="admin-dashboard.html"
+                        title="Acces Admin"
+                        style="color: var(--surface-border); margin-left:10px; transition: color 0.3s;"
+                        onmouseover="this.style.color='var(--accent-primary)'"
+                        onmouseout="this.style.color='var(--surface-border)'"><i class="fas fa-lock"></i></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

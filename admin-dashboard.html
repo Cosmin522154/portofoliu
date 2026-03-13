@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | C.S WebDeveloper</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome pt pictograme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #0b0f19; color: #f8fafc; }
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .admin-sidebar {
+            width: 280px;
+            background: rgba(11, 15, 25, 0.95);
+            border-right: 1px solid var(--surface-border);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar-logo {
+            font-family: var(--font-logo);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            display: block;
+        }
+        
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--accent-primary);
+        }
+
+        /* Main Content Styles */
+        .admin-main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--font-logo);
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Action Cards / Panels */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .panel {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 15px;
+        }
+
+        .panel-header h3 {
+            font-size: 1.25rem;
+        }
+
+        /* Invoice Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--surface-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        /* Services List */
+        .service-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--surface-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .service-name {
+            font-weight: 500;
+        }
+
+        .service-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active { background: rgba(39, 201, 63, 0.1); color: #27c93f; border: 1px solid rgba(39, 201, 63, 0.2); }
+        .status-pending { background: rgba(255, 189, 46, 0.1); color: #ffbd2e; border: 1px solid rgba(255, 189, 46, 0.2); }
+
+    </style>
+</head>
+<body>
+
+    <div class="admin-layout" id="app">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <span class="logo-accent">C.S</span> Admin
+            </a>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active" onclick="switchTab('dashboard')">
+                    <i class="fas fa-chart-pie"></i> Panou Central
+                </div>
+                <div class="nav-item" onclick="switchTab('invoices')">
+                    <i class="fas fa-file-invoice-dollar"></i> Generare Facturi
+                </div>
+                <div class="nav-item" onclick="switchTab('services')">
+                    <i class="fas fa-briefcase"></i> Evidență Servicii
+                </div>
+                <a href="index.html" class="nav-item" style="margin-top: auto;">
+                    <i class="fas fa-arrow-left"></i> Ieșire înapoi pe Site
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 2rem; margin-bottom: 5px;">Bun venit, Cosmin.</h1>
+                    <p style="color: var(--text-secondary);">Aici îți gestionezi simplu afacerea de web development.</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="alert('Funcție de descărcare raport!')"><i class="fas fa-download"></i> &nbsp; Raport Lună Curentă</button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Clienți Activi</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Proiecte În Lucru</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Venit Estimat (Luna Curentă)</div>
+                    <div class="stat-value">2,850 €</div>
+                </div>
+            </div>
+
+            <!-- Action Panels -->
+            <div class="action-grid">
+                <!-- Facturare Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Generează Factură Nouă</h3>
+                        <i class="fas fa-file-invoice text-primary"></i>
+                    </div>
+                    
+                    <form id="invoiceForm" onsubmit="generateInvoice(event)">
+                        <div class="form-group">
+                            <label>Nume Client / Companie</label>
+                            <input type="text" id="clientName" placeholder="Ex: SC CARP Aiud SRL" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CUI / CIF</label>
+                            <input type="text" id="clientCUI" placeholder="Ex: RO12345678" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Serviciu Prestat</label>
+                            <select id="serviceType" required>
+                                <option value="Site-uri de Prezentare">Site-uri de Prezentare</option>
+                                <option value="Dashboard Admin & Client">Dashboard Admin & Client</option>
+                                <option value="Aplicație Mobilă">Aplicație Mobilă</option>
+                                <option value="Mentenanță / Găzduire">Mentenanță / Găzduire</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Sumă (EUR)</label>
+                            <input type="number" id="amount" placeholder="Ex: 850" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Generează PDF</button>
+                    </form>
+                </div>
+
+                <!-- Evidenta Servicii Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Evidență Proiecte Recente</h3>
+                        <button class="btn btn-secondary" style="padding: 6px 15px; font-size: 0.85rem;" onclick="addProject()">+ Adaugă</button>
+                    </div>
+                    
+                    <div class="services-list" id="projectList">
+                        <div class="service-list-item">
+                            <div>
+                                <div class="service-name">TAXI App Driver</div>
+                                <div class="service-date">Client: Taxi Sofica • Deadline: 25 Oct</div>
+                            </div>
+                            <span class="status-badge status-active">În Lucru</span>
+                        </div>
+                        
+                        <div class="service-list-item">
+                            <div>
+                                <div class="service-name">Site Prezentare Web</div>
+                                <div class="service-date">Client: Real Estate • Mentenanță Activă</div>
+                            </div>
+                            <span class="status-badge status-active">Finalizat</span>
+                        </div>
+
+                        <div class="service-list-item">
+                            <div>
+                                <div class="service-name">Dashboard Admin Panel</div>
+                                <div class="service-date">Client: CARP Aiud • Factură emisă</div>
+                            </div>
+                            <span class="status-badge status-pending">În așteptare plată</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Integrare jsPDF pentru generarea documentelor PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function generateInvoice(e) {
+            e.preventDefault();
+            
+            const clientName = document.getElementById('clientName').value;
+            const clientCUI = document.getElementById('clientCUI').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const amount = document.getElementById('amount').value;
+
+            // Inițializam jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Titlul Facturii
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(22);
+            doc.text("FACTURA PROFORMA", 105, 20, null, null, "center");
+
+            // Informatii Furnizor (Noi)
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(12);
+            doc.text("FURNIZORI:", 20, 40);
+            doc.setFont("helvetica", "bold");
+            doc.text("C.S WebDeveloper", 20, 48);
+            doc.setFont("helvetica", "normal");
+            doc.text("Email: cosmin.sofica1@gmail.ro", 20, 56);
+            doc.text("Telefon: +40 771 302 541", 20, 64);
+
+            // Informatii Client
+            doc.text("CLIENT:", 120, 40);
+            doc.setFont("helvetica", "bold");
+            doc.text(clientName, 120, 48);
+            doc.setFont("helvetica", "normal");
+            doc.text("CUI/CIF: " + clientCUI, 120, 56);
+            
+            const today = new Date();
+            doc.text("Data emiterii: " + today.toLocaleDateString("ro-RO"), 120, 64);
+
+            // Linie despartitoare
+            doc.line(20, 75, 190, 75);
+
+            // Tabel simplu servicii
+            doc.setFont("helvetica", "bold");
+            doc.text("Descriere Servicii", 20, 90);
+            doc.text("Cantitate", 120, 90);
+            doc.text("Suma (EUR)", 160, 90);
+            
+            doc.line(20, 95, 190, 95);
+
+            // Continut tabel - Rand 1
+            doc.setFont("helvetica", "normal");
+            doc.text(serviceType, 20, 105);
+            doc.text("1", 125, 105);
+            doc.text(amount + " €", 160, 105);
+
+            doc.line(20, 115, 190, 115);
+
+            // Total de plata
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.text("TOTAL DE PLATA: " + amount + " €", 110, 135);
+
+            // Subsol si mentiuni
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text("Aceasta factura tine loc de evidenta pentru C.S WebDeveloper.", 105, 180, null, null, "center");
+
+            // Descarcare PDF
+            const fileName = "Factura_" + clientName.replace(/\s+/g, '_') + "_" + today.getTime() + ".pdf";
+            doc.save(fileName);
+
+            alert("Factura a fost generată și descărcată cu succes!");
+            e.target.reset(); // Resetează formularul
+        }
+
+        function addProject() {
+            const nume = prompt("Tastează numele noului proiect:");
+            if (nume) {
+                const list = document.getElementById('projectList');
+                const newItem = document.createElement('div');
+                newItem.className = 'service-list-item';
+                newItem.innerHTML = `
+                    <div>
+                        <div class="service-name">${nume}</div>
+                        <div class="service-date">Adăugat Astăzi</div>
+                    </div>
+                    <span class="status-badge status-active">Start</span>
+                `;
+                // Adăugăm la începutul listei:
+                list.insertBefore(newItem, list.firstChild);
+            }
+        }
+
+        // Simulare Tab-uri daca vrei sa le ascunzi
+        function switchTab(tabId) {
+            alert("Te afli pe: " + tabId + " - Funcționalitate ce poate deschide alte ecrane!");
+        }
+    </script>
+</body>
+</html>
