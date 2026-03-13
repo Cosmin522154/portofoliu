@@ -37,7 +37,6 @@ html {
   background-color: var(--bg-color);
   color: var(--text-primary);
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
